@@ -1,4 +1,9 @@
 "use strict";
+
+console.log("test1");
+
+
+
 // URLからデータを読み込む
 fetch("poke.json")
 
@@ -13,9 +18,12 @@ fetch("poke.json")
     p.textContent = date.name;
     const test = document.getElementById("test");
     test.appendChild(p);
+    console.log("test2");
 })
 
 // 通信にエラーが発生した場合にこの関数が発生する
 .catch(error =>{
     console.log(error);
 })
+
+console.log("test3");
