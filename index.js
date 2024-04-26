@@ -9,7 +9,10 @@ fetch("poke.json")
 
 // json変換したものをdateという引数に渡す
 .then(date =>{
-    console.log(date);
+    const p = document.createElement("p");
+    p.textContent = date.name;
+    const test = document.getElementById("test");
+    test.appendChild(p);
 })
 
 // 通信にエラーが発生した場合にこの関数が発生する
