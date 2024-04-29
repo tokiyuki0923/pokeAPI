@@ -1,4 +1,4 @@
 {
-    "name":"pokemon",
-    "url":"https://pokeapi.co/"
+    "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"
 }
+

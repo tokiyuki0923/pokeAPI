@@ -1,11 +1,48 @@
 "use strict";
 
-console.log("test1");
 
 
 
-// URLからデータを読み込む
-fetch("poke.json")
+function fetchAndDisplaySprites() {
+    fetch("https://pokeapi.co/api/v2/pokemon/25")
+    .then(response => response.json())
+    .then(data => {
+        const sprites = data.sprites;
+        const spritesContainer = document.getElementById("spritesContainer");
+
+
+        for (const key in sprites) {
+        if (sprites.hasOwnProperty(key)) {
+            const imgUrl = sprites[key];
+            const imgElement = document.createElement("img");
+            imgElement.src = imgUrl;
+            imgElement.alt = key;
+            spritesContainer.appendChild(imgElement);
+        }
+        }
+    })
+
+    .catch(error => console.error("Error fetching JSON:", error));
+}
+
+
+
+
+window.onload = fetchAndDisplaySprites;
+
+
+
+
+
+
+
+
+
+
+
+
+/* // URLからデータを読み込む
+fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
 
 // URLから読み込んだデータを受け取って加工する。受け取ったデータをresponceという引数に入れる
 .then(response => {
@@ -14,16 +51,11 @@ fetch("poke.json")
 
 // json変換したものをdateという引数に渡す
 .then(date =>{
-    const p = document.createElement("p");
-    p.textContent = date.name;
-    const test = document.getElementById("test");
-    test.appendChild(p);
-    console.log("test2");
+
 })
 
 // 通信にエラーが発生した場合にこの関数が発生する
 .catch(error =>{
     console.log(error);
 })
-
-console.log("test3");
+ */
