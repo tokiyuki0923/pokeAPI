@@ -3,7 +3,7 @@
 
 
 
-function fetchAndDisplaySprites() {
+function display() {
     fetch("https://pokeapi.co/api/v2/pokemon/25")
     .then(response => response.json())
     .then(data => {
@@ -28,7 +28,7 @@ function fetchAndDisplaySprites() {
 
 
 
-window.onload = fetchAndDisplaySprites;
+window.onload = display;
 
 
 
