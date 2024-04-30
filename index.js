@@ -1,7 +1,19 @@
 "use strict";
 
-function display() {
-    fetch("https://pokeapi.co/api/v2/pokemon/25")
+async function display() {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/25");
+    const data = await response.json();
+    const sprites = data.sprites;
+    const spritesContainer = document.getElementById("spritesContainer");
+
+    for (const key of Object.keys(sprites)) {
+        const imgUrl = sprites[key];
+        const imgElement = document.createElement("img");
+        imgElement.src = imgUrl;
+        spritesContainer.appendChild(imgElement);
+    }
+}
+    /* fetch("https://pokeapi.co/api/v2/pokemon/25")
     .then(response => response.json())
     .then(data => {
         const sprites = data.sprites;
@@ -16,10 +28,9 @@ function display() {
         }
         }
     
-    })
-}
+    }) */
 
-function redisplay() {
+/* function redisplay() {
     fetch("https://pokeapi.co/api/v2/pokemon/25")
     .then(response => response.json())
     .then(data => {
@@ -30,19 +41,27 @@ function redisplay() {
         imgElement.src = imgUrl;
         spritesContainer.appendChild(imgElement);
     })
-    .catch(error => console.error('Error fetching data:', error));
+} */
+
+
+
+async function redisplay() {
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/25");
+        const data = await response.json();
+        const otherSprites = data.sprites.other.dream_world;
+        const imgUrl = otherSprites.front_default;
+        const spritesContainer = document.getElementById("spritesContainer");
+        const imgElement = document.createElement("img");
+        imgElement.src = imgUrl;
+        spritesContainer.appendChild(imgElement);
 }
 
 
+
+
+
+display();
 redisplay();
-
-
-
-
-
-
-window.onload = display;
-
 
 
 
