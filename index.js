@@ -15,21 +15,31 @@ function display() {
             spritesContainer.appendChild(imgElement);
         }
         }
-
-        const dream_world = date.dream_world;
-        for(const property in dream_world){
-            if(dream_world.hasOwnProperty(property)){
-                const imgUrl = dream_world[property];
-                const imgElement = document.createElement("img");
-                imgElement.src = imgUrl;
-                spritesContainer.appendChild(imgElement);
-            }
-        }
-
-
-
+    
     })
 }
+
+function redisplay() {
+    fetch("https://pokeapi.co/api/v2/pokemon/25")
+    .then(response => response.json())
+    .then(data => {
+        const otherSprites = data.sprites.other.dream_world;
+        const imgUrl = otherSprites.front_default;
+        const spritesContainer = document.getElementById("spritesContainer");
+        const imgElement = document.createElement("img");
+        imgElement.src = imgUrl;
+        spritesContainer.appendChild(imgElement);
+    })
+    .catch(error => console.error('Error fetching data:', error));
+}
+
+
+redisplay();
+
+
+
+
+
 
 window.onload = display;
 
