@@ -15,9 +15,21 @@ function display() {
             spritesContainer.appendChild(imgElement);
         }
         }
+
+        const dream_world = date.dream_world;
+        for(const property in dream_world){
+            if(dream_world.hasOwnProperty(property)){
+                const imgUrl = dream_world[property];
+                const imgElement = document.createElement("img");
+                imgElement.src = imgUrl;
+                spritesContainer.appendChild(imgElement);
+            }
+        }
+
+
+
     })
 }
-
 
 window.onload = display;
 
