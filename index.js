@@ -10,7 +10,6 @@ function display() {
         const sprites = data.sprites;
         const spritesContainer = document.getElementById("spritesContainer");
 
-
         for (const key in sprites) {
         if (sprites.hasOwnProperty(key)) {
             const imgUrl = sprites[key];
@@ -21,8 +20,6 @@ function display() {
         }
         }
     })
-
-    .catch(error => console.error("Error fetching JSON:", error));
 }
 
 
