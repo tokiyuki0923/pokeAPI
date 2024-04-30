@@ -15,14 +15,11 @@ function display() {
             const imgUrl = sprites[key];
             const imgElement = document.createElement("img");
             imgElement.src = imgUrl;
-            imgElement.alt = key;
             spritesContainer.appendChild(imgElement);
         }
         }
     })
 }
-
-
 
 
 window.onload = display;
